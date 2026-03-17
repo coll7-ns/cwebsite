@@ -571,6 +571,36 @@
     margin: 0 0 8px;
   }
 
+  .extra-card-img-wrap {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0;
+    aspect-ratio: 16/7;
+    cursor: zoom-in;
+  }
+  .extra-card-img-wrap .extra-card-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s;
+  }
+  .extra-card-img-wrap:hover .extra-card-img { transform: scale(1.04); }
+  .extra-img-hint {
+    position: absolute;
+    bottom: 10px; right: 12px;
+    background: rgba(250,247,244,0.88);
+    backdrop-filter: blur(6px);
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--navy);
+    padding: 4px 10px;
+    border-radius: 20px;
+    opacity: 0;
+    transition: opacity 0.2s;
+    pointer-events: none;
+  }
+  .extra-card-img-wrap:hover .extra-img-hint { opacity: 1; }
+
   /* ── EXTRA SERVICES ── */
   .extra-services-grid {
     display: grid;
@@ -1070,7 +1100,10 @@
     <p class="combined-sub-label" style="margin-top:48px;">✦ &nbsp;Web & Graphic Design</p>
     <div class="extra-services-grid">
       <div class="extra-card">
-        <img src="images/web_design.png" alt="Web Design" class="extra-card-img">
+        <div class="portfolio-card extra-card-img-wrap" data-src="images/web_design.png" tabindex="0" role="button" aria-label="View Web Design">
+          <img src="images/web_design.png" alt="Web Design" class="extra-card-img">
+          <div class="extra-img-hint">🔍 Click to enlarge</div>
+        </div>
         <div class="extra-card-body">
           <div class="extra-card-num">01</div>
           <div class="extra-card-title">Web Design</div>
@@ -1086,7 +1119,10 @@
         </div>
       </div>
       <div class="extra-card">
-        <img src="images/graphic_design.png" alt="Graphic Design" class="extra-card-img">
+        <div class="portfolio-card extra-card-img-wrap" data-src="images/graphic_design.png" tabindex="0" role="button" aria-label="View Graphic Design">
+          <img src="images/graphic_design.png" alt="Graphic Design" class="extra-card-img">
+          <div class="extra-img-hint">🔍 Click to enlarge</div>
+        </div>
         <div class="extra-card-body">
           <div class="extra-card-num">02</div>
           <div class="extra-card-title">Graphic Design</div>
@@ -1217,7 +1253,8 @@
   document.querySelectorAll('.portfolio-card').forEach(card => {
     function openLightbox() {
       lightboxImg.src = card.dataset.src;
-      lightboxImg.alt = card.querySelector('img').alt;
+      // card might be an <img> itself or a <div> containing an <img>
+      lightboxImg.alt = card.tagName === 'IMG' ? card.alt : (card.querySelector('img') ? card.querySelector('img').alt : '');
       lightbox.classList.add('open');
       document.body.style.overflow = 'hidden';
     }

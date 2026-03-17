@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Collins Kiprono — Social Media Management</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,400;1,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,700;1,9..144,400;1,9..144,700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -202,16 +202,17 @@
   }
 
   .hero-headline {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: clamp(1.4rem, 3vw, 2.1rem);
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(1.5rem, 3.2vw, 2.2rem);
     font-weight: 700;
     font-style: italic;
-    line-height: 1.35;
+    line-height: 1.3;
     color: var(--navy);
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
   }
   .hero-headline em {
     font-style: normal;
+    font-weight: 400;
     color: var(--terracotta);
   }
   .typing-cursor { display: none; }
@@ -238,13 +239,17 @@
     font-weight: 500;
   }
   .hero-bullets li::before {
-    content: '';
-    width: 20px; height: 20px;
+    content: '✦';
+    font-size: 0.75rem;
+    color: var(--terracotta);
     flex-shrink: 0;
-    background: var(--terracotta);
-    border-radius: 50%;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 10.5l3.5 3.5 6.5-7' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-    background-size: cover;
+    width: 22px; height: 22px;
+    background: rgba(191,135,119,0.12);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
   }
 
   .hero-socials {
@@ -551,7 +556,132 @@
     box-shadow: 0 30px 80px rgba(0,0,0,0.5);
   }
 
-  /* ── ABOUT ── */
+  .combined-sub-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 24px;
+  }
+  .combined-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(191,135,119,0.35), transparent);
+    margin: 0 0 8px;
+  }
+
+  /* ── EXTRA SERVICES ── */
+  .extra-services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+    margin-top: 0;
+  }
+  .extra-card {
+    background: var(--warm-white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-soft);
+    border: 1px solid rgba(191,135,119,0.1);
+    overflow: hidden;
+    transition: transform 0.25s, box-shadow 0.25s;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  .extra-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%; height: 3px;
+    background: linear-gradient(90deg, var(--terracotta), var(--terracotta-light));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+  .extra-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); }
+  .extra-card:hover::after { transform: scaleX(1); }
+
+  .extra-card-img {
+    width: 100%;
+    aspect-ratio: 16/7;
+    object-fit: cover;
+    display: block;
+    background: var(--blush);
+  }
+  .extra-card-body {
+    padding: 28px 28px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex: 1;
+  }
+  .extra-card-num {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--terracotta-dark);
+    line-height: 1;
+  }
+  .extra-card-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: 0.01em;
+  }
+  .extra-card-desc {
+    font-size: 0.87rem;
+    color: var(--text-light);
+    line-height: 1.7;
+  }
+  .extra-card-includes {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-top: 4px;
+  }
+  .extra-card-includes li {
+    font-size: 0.83rem;
+    color: var(--text-mid);
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-weight: 500;
+  }
+  .extra-card-includes li::before {
+    content: '';
+    width: 18px; height: 18px;
+    flex-shrink: 0;
+    background: rgba(191,135,119,0.15);
+    border-radius: 50%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 10.5l3.5 3.5 6.5-7' stroke='%23a06b59' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-size: cover;
+  }
+  .extra-card-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--navy);
+    color: #fff;
+    text-decoration: none;
+    padding: 11px 24px;
+    border-radius: 50px;
+    font-size: 0.84rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    transition: all 0.2s;
+    align-self: flex-start;
+    margin-top: 6px;
+  }
+  .extra-card-btn:hover {
+    background: var(--terracotta);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(191,135,119,0.35);
+  }
+  @media (max-width: 768px) {
+    .extra-services-grid { grid-template-columns: 1fr; }
+  }
   .about-bg { background: var(--beige); }
 
   .about-text-block {
@@ -752,8 +882,8 @@
   <a href="#" class="nav-brand">
     <img src="images/logo.png" alt="Collins Kiprono Logo" class="nav-logo">
     <div class="nav-brand-text">
-      <span class="nav-brand-name">COLLINS KIPRONO</span>
-      <span class="nav-brand-sub">Social Media Management</span>
+      <span class="nav-brand-name">Collins Kiprono</span>
+      <span class="nav-brand-sub">Digital Creative & Marketing</span>
     </div>
   </a>
   <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -786,14 +916,14 @@
       </h1>
 
       <p class="hero-desc">
-        Collins helps businesses grow their digital presence with strategies that actually work — blending creative visuals with data-driven thinking.
+        Collins helps businesses and personal brands grow online through strategy, design, and execution — covering everything from social media to SEO, ads, and print.
       </p>
 
       <ul class="hero-bullets">
-        <li>Social media strategy & planning</li>
-        <li>Branded graphics & visual content</li>
-        <li>Content scheduling & posting</li>
-        <li>Account management & optimization</li>
+        <li>Social media strategy & management</li>
+        <li>Graphic, web & print design</li>
+        <li>SEO, blog writing & branding</li>
+        <li>Paid ads — Facebook, Instagram & Google</li>
       </ul>
 
       <div class="hero-socials">
@@ -835,7 +965,7 @@
         <img src="images/collins-kiprono-portrait.png" alt="Collins Kiprono" class="portrait-img">
         <div class="availability-badge">
           <div class="avail-title"><span class="avail-dot"></span>Available for Fiverr orders</div>
-          <p class="avail-sub">Social media management, branded content, promo graphics & sample portfolio work.</p>
+          <p class="avail-sub">Social media, graphic design, web design, SEO, branding & paid ads.</p>
         </div>
       </div>
     </div>
@@ -848,56 +978,61 @@
     <div class="services-head">
       <p class="section-label">What I Offer</p>
       <h2 class="section-title">What I <em>Do</em></h2>
-      <p class="section-desc">From strategy to execution — everything you need to build a powerful social media presence.</p>
+      <p class="section-desc">From social media to branding, design, SEO, and paid ads — a full suite of digital services to grow your brand online and offline.</p>
     </div>
     <div class="services-grid">
       <div class="service-card">
         <div class="service-num">01</div>
-        <div class="service-name">Social Media Strategy</div>
-        <p class="service-desc">Custom strategies tailored to your brand goals, audience, and platform — built for sustainable growth.</p>
+        <div class="service-name">Social Media Management</div>
+        <p class="service-desc">Strategy, content creation, scheduling, hashtag research, and performance tracking — all handled so you can focus on running your business.</p>
       </div>
       <div class="service-card">
         <div class="service-num">02</div>
-        <div class="service-name">Profile & Page Optimization</div>
-        <p class="service-desc">Complete profile overhauls that make your brand look polished, credible, and instantly recognizable.</p>
+        <div class="service-name">Branding & Brand Identity</div>
+        <p class="service-desc">Build a brand that people remember — logos, colour palettes, typography, and brand guidelines crafted to communicate who you are at a glance.</p>
       </div>
       <div class="service-card">
         <div class="service-num">03</div>
-        <div class="service-name">Content Creation</div>
-        <p class="service-desc">Eye-catching branded graphics, captions, and posts designed to stop the scroll and drive engagement.</p>
+        <div class="service-name">Graphic & Print Design</div>
+        <p class="service-desc">Flyers, posters, banners, business cards, and branded visuals designed to make your business stand out both online and in print.</p>
       </div>
       <div class="service-card">
         <div class="service-num">04</div>
-        <div class="service-name">Scheduling & Posting</div>
-        <p class="service-desc">Consistent, optimized posting schedules that keep your audience engaged without the daily hustle.</p>
+        <div class="service-name">Web Design</div>
+        <p class="service-desc">Clean, mobile-friendly websites and landing pages designed to look great, load fast, and turn visitors into paying customers.</p>
       </div>
       <div class="service-card">
         <div class="service-num">05</div>
-        <div class="service-name">Hashtag Research</div>
-        <p class="service-desc">Strategic hashtag sets that extend your reach and connect your content with the right audiences.</p>
+        <div class="service-name">SEO & Blog Writing</div>
+        <p class="service-desc">Keyword-optimised blog posts and website copy that improve your search rankings, drive organic traffic, and position you as an authority.</p>
       </div>
       <div class="service-card">
         <div class="service-num">06</div>
-        <div class="service-name">Performance Tracking</div>
-        <p class="service-desc">Clear insights and monthly reports so you always know what's working and where to grow next.</p>
+        <div class="service-name">Paid Ads Management</div>
+        <p class="service-desc">Facebook, Instagram, and Google ad campaigns built and managed to reach the right audience, maximise your budget, and drive real results.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PORTFOLIO -->
+<!-- PORTFOLIO & SERVICES -->
 <section id="portfolio">
   <div class="section-inner">
+
+    <!-- Header -->
     <div class="portfolio-head">
       <div>
-        <p class="section-label">My Work</p>
-        <h2 class="section-title"><em>Portfolio</em></h2>
+        <p class="section-label">My Work & Services</p>
+        <h2 class="section-title">Portfolio & <em>Design Services</em></h2>
       </div>
-      <p class="section-desc" style="max-width:360px;font-size:0.88rem;">
-        Sample social media designs showcasing branded content, promotional graphics, and campaign visuals.
+      <p class="section-desc" style="max-width:380px;font-size:0.88rem;">
+        Sample work across social media, graphic design, and web design — plus detailed service cards for Web & Graphic Design.
       </p>
     </div>
-    <div class="portfolio-grid">
+
+    <!-- Portfolio label -->
+    <p class="combined-sub-label">✦ &nbsp;Sample Work</p>
+    <div class="portfolio-grid" style="margin-bottom: 60px;">
       <div class="portfolio-card" data-src="images/personal-brand-promo.png" tabindex="0" role="button" aria-label="View Personal Brand Promo">
         <img src="images/personal-brand-promo.png" alt="Personal Brand Promo" loading="lazy">
         <div class="portfolio-overlay">
@@ -927,6 +1062,47 @@
         </div>
       </div>
     </div>
+
+    <!-- Divider -->
+    <div class="combined-divider"></div>
+
+    <!-- Design Services label -->
+    <p class="combined-sub-label" style="margin-top:48px;">✦ &nbsp;Web & Graphic Design</p>
+    <div class="extra-services-grid">
+      <div class="extra-card">
+        <img src="images/web_design.png" alt="Web Design" class="extra-card-img">
+        <div class="extra-card-body">
+          <div class="extra-card-num">01</div>
+          <div class="extra-card-title">Web Design</div>
+          <p class="extra-card-desc">Clean, modern, and mobile-friendly websites designed to make your brand look credible and professional online — built to convert visitors into customers.</p>
+          <ul class="extra-card-includes">
+            <li>Landing pages & business websites</li>
+            <li>Portfolio & personal brand sites</li>
+            <li>Mobile-responsive layouts</li>
+            <li>Contact forms & social integration</li>
+            <li>Clean UI with brand colours & fonts</li>
+          </ul>
+          <a href="https://www.fiverr.com/s/VYEaBNe" target="_blank" rel="noopener" class="extra-card-btn">Order Now ↗</a>
+        </div>
+      </div>
+      <div class="extra-card">
+        <img src="images/graphic_design.png" alt="Graphic Design" class="extra-card-img">
+        <div class="extra-card-body">
+          <div class="extra-card-num">02</div>
+          <div class="extra-card-title">Graphic Design</div>
+          <p class="extra-card-desc">Eye-catching visuals that communicate your brand identity with confidence — from logos to marketing materials, every design is crafted to impress.</p>
+          <ul class="extra-card-includes">
+            <li>Logo & brand identity design</li>
+            <li>Flyers, posters & banners</li>
+            <li>Business cards & letterheads</li>
+            <li>Social media graphics & templates</li>
+            <li>Promotional & event materials</li>
+          </ul>
+          <a href="https://www.fiverr.com/s/VYEaBNe" target="_blank" rel="noopener" class="extra-card-btn">Order Now ↗</a>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -944,16 +1120,18 @@
       <p class="section-label">About Collins</p>
       <h2 class="section-title">Building brands that <em>stand out</em> online</h2>
       <p class="about-para">
-        Collins Kiprono is a dedicated social media manager passionate about helping businesses and personal brands build a stronger, more authentic online presence. With a keen eye for design and a deep understanding of platform algorithms, Collins bridges the gap between creativity and strategy.
+        Collins Kiprono is a multi-disciplinary digital creative helping businesses and personal brands grow their presence online and offline. From social media strategy to graphic design, web design, SEO, and paid advertising — Collins brings everything under one roof so your brand stays consistent, visible, and impactful.
       </p>
       <p class="about-para">
-        Whether you're a startup looking to establish your brand or an established business ready to scale — Collins delivers consistent, high-quality content that resonates with your audience.
+        Whether you're a startup building from scratch or an established business ready to scale — Collins delivers creative, results-driven work tailored to your goals and audience.
       </p>
       <div class="about-points-grid">
-        <div class="about-point"><span class="about-tick"></span>Branded content design that communicates your identity</div>
-        <div class="about-point"><span class="about-tick"></span>Strategic social media posting for maximum visibility</div>
-        <div class="about-point"><span class="about-tick"></span>Profile optimization to build trust and credibility</div>
-        <div class="about-point"><span class="about-tick"></span>Promotional graphics that drive action and engagement</div>
+        <div class="about-point"><span class="about-tick"></span>Social media strategy & content management</div>
+        <div class="about-point"><span class="about-tick"></span>Branding, logos & brand identity design</div>
+        <div class="about-point"><span class="about-tick"></span>Graphic & print design — flyers, banners, posters</div>
+        <div class="about-point"><span class="about-tick"></span>Web design — landing pages & business sites</div>
+        <div class="about-point"><span class="about-tick"></span>SEO & keyword-optimised blog writing</div>
+        <div class="about-point"><span class="about-tick"></span>Paid ads — Facebook, Instagram & Google</div>
       </div>
     </div>
     <!-- Full width image below -->
@@ -1014,7 +1192,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2026 <span>Collins Kiprono</span>. Social Media Management & Content Creation.</p>
+  <p>© 2026 <span>Collins Kiprono</span>. Social Media · Graphic Design · Web Design · SEO · Branding · Paid Ads.</p>
 </footer>
 
 <script>

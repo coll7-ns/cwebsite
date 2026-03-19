@@ -311,7 +311,6 @@
     transform: translateY(-2px);
   }
 
-  /* ── HERO RIGHT ── */
   .hero-right {
     display: flex;
     flex-direction: column;
@@ -382,7 +381,6 @@
     line-height: 1.5;
   }
 
-  /* ── SECTION BASE ── */
   section { padding: 90px 5%; }
   .section-inner { max-width: 1200px; margin: 0 auto; }
 
@@ -411,17 +409,13 @@
     line-height: 1.75;
   }
 
-  /* ── SERVICES ── */
   .services-bg { background: var(--beige); }
-
   .services-head { margin-bottom: 50px; }
-
   .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
   }
-
   .service-card {
     background: var(--warm-white);
     border-radius: var(--radius);
@@ -444,7 +438,6 @@
   }
   .service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); }
   .service-card:hover::after { transform: scaleX(1); }
-
   .service-num {
     font-family: var(--font-display);
     font-size: 2.5rem;
@@ -466,7 +459,6 @@
     line-height: 1.65;
   }
 
-  /* ── PORTFOLIO ── */
   .portfolio-head {
     margin-bottom: 50px;
     display: flex;
@@ -475,13 +467,11 @@
     flex-wrap: wrap;
     gap: 20px;
   }
-
   .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
   }
-
   .portfolio-card {
     border-radius: var(--radius);
     overflow: hidden;
@@ -503,7 +493,6 @@
     transition: transform 0.4s;
   }
   .portfolio-card:hover img { transform: scale(1.05); }
-
   .portfolio-overlay {
     position: absolute;
     bottom: 0; left: 0; right: 0;
@@ -522,7 +511,142 @@
   }
   .portfolio-overlay-desc { font-size: 0.78rem; opacity: 0.8; line-height: 1.5; }
 
-  /* ── LIGHTBOX ── */
+  .proof-grid, .reviews-grid, .pricing-grid, .contact-grid {
+    display: grid;
+    gap: 24px;
+  }
+  .proof-grid { grid-template-columns: repeat(3, 1fr); }
+  .reviews-grid { grid-template-columns: repeat(3, 1fr); }
+  .pricing-grid { grid-template-columns: repeat(3, 1fr); }
+  .contact-grid { grid-template-columns: 1fr 1fr; align-items: start; }
+
+  .proof-card, .review-card, .pricing-card, .contact-card {
+    background: var(--warm-white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-soft);
+    border: 1px solid rgba(191,135,119,0.1);
+    padding: 28px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .proof-card::after, .review-card::after, .pricing-card::after, .contact-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%; height: 3px;
+    background: linear-gradient(90deg, var(--terracotta), var(--terracotta-light));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+  .proof-card:hover, .review-card:hover, .pricing-card:hover, .contact-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+  }
+  .proof-card:hover::after, .review-card:hover::after, .pricing-card:hover::after, .contact-card:hover::after {
+    transform: scaleX(1);
+  }
+  .proof-card strong, .review-name, .pricing-title, .contact-card h3 {
+    color: var(--navy);
+  }
+  .proof-card p, .review-card p, .pricing-card p, .contact-card p, .contact-card li, .contact-card label {
+    color: var(--text-mid);
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+  .review-stars {
+    color: var(--terracotta-dark);
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+    letter-spacing: 0.06em;
+  }
+  .review-name {
+    margin-top: 14px;
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+  .review-role {
+    color: var(--text-light);
+    font-size: 0.8rem;
+    margin-top: 2px;
+  }
+  .price {
+    font-family: var(--font-display);
+    font-size: 2.3rem;
+    color: var(--terracotta-dark);
+    margin: 12px 0 14px;
+    line-height: 1;
+  }
+  .price small {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    color: var(--text-light);
+    margin-top: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .pricing-list, .contact-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 16px 0 0;
+  }
+  .pricing-list li, .contact-list li {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .pricing-list li::before, .contact-list li::before {
+    content: '•';
+    color: var(--terracotta);
+    font-weight: 700;
+  }
+  .pricing-card.featured {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(191,135,119,0.22);
+    border: 1px solid rgba(191,135,119,0.22);
+  }
+  .pricing-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: rgba(191,135,119,0.12);
+    color: var(--terracotta-dark);
+    padding: 6px 10px;
+    border-radius: 999px;
+    margin-bottom: 10px;
+  }
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 18px;
+  }
+  .contact-links a {
+    text-decoration: none;
+    color: var(--navy);
+    font-weight: 600;
+  }
+  .contact-form {
+    display: grid;
+    gap: 14px;
+  }
+  .contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(191,135,119,0.24);
+    font-family: var(--font-body);
+    background: #fff;
+    color: var(--text-dark);
+  }
+  .contact-form textarea { min-height: 140px; resize: vertical; }
+
   .lightbox {
     display: none;
     position: fixed;
@@ -570,7 +694,6 @@
     background: linear-gradient(90deg, transparent, rgba(191,135,119,0.35), transparent);
     margin: 0 0 8px;
   }
-
   .extra-card-img-wrap {
     position: relative;
     overflow: hidden;
@@ -600,13 +723,10 @@
     pointer-events: none;
   }
   .extra-card-img-wrap:hover .extra-img-hint { opacity: 1; }
-
-  /* ── EXTRA SERVICES ── */
   .extra-services-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 28px;
-    margin-top: 0;
   }
   .extra-card {
     background: var(--warm-white);
@@ -631,7 +751,6 @@
   }
   .extra-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); }
   .extra-card:hover::after { transform: scaleX(1); }
-
   .extra-card-img {
     width: 100%;
     aspect-ratio: 16/7;
@@ -709,11 +828,8 @@
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(191,135,119,0.35);
   }
-  @media (max-width: 768px) {
-    .extra-services-grid { grid-template-columns: 1fr; }
-  }
-  .about-bg { background: var(--beige); }
 
+  .about-bg { background: var(--beige); }
   .about-text-block {
     max-width: 680px;
     margin: 0 auto 52px;
@@ -768,7 +884,6 @@
     background: var(--blush);
   }
 
-  /* ── CONTACT CTA ── */
   .cta-section {
     background: linear-gradient(135deg, var(--navy) 0%, #1a2448 60%, var(--terracotta-dark) 100%);
     padding: 90px 5%;
@@ -791,7 +906,6 @@
     margin-bottom: 28px;
   }
   .cta-title em { font-style: italic; color: var(--terracotta-light); }
-
   .btn-cta {
     display: inline-flex; align-items: center; gap: 10px;
     background: var(--terracotta);
@@ -811,7 +925,6 @@
     box-shadow: 0 10px 32px rgba(191,135,119,0.55);
   }
 
-  /* ── FLOATING SOCIAL BUTTONS ── */
   .float-buttons {
     position: fixed;
     bottom: 28px; right: 28px;
@@ -860,7 +973,6 @@
   .float-btn.email { background: var(--navy); box-shadow: 0 6px 20px rgba(36,48,94,0.4); }
   .float-btn.email:hover { box-shadow: 0 10px 28px rgba(36,48,94,0.55); }
 
-  /* ── FOOTER ── */
   footer {
     background: var(--navy);
     color: rgba(255,255,255,0.55);
@@ -871,7 +983,6 @@
   }
   footer span { color: var(--terracotta-light); }
 
-  /* ── MOBILE NAV ── */
   @media (max-width: 768px) {
     .hamburger { display: flex; }
     .nav-right {
@@ -887,27 +998,46 @@
     }
     .nav-right.open { display: flex; }
     .nav-links { flex-direction: column; gap: 20px; }
-    .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 40px; }
+    .hero-grid, .contact-grid { grid-template-columns: 1fr; text-align: center; gap: 40px; }
     .hero-right { order: -1; }
     .hero-desc, .hero-bullets { text-align: left; }
     .hero-cta, .hero-socials { justify-content: center; }
     .availability-badge { left: 50%; transform: translateX(-50%); bottom: -60px; }
     .portrait-wrap { margin-bottom: 50px; }
-    .services-grid { grid-template-columns: 1fr; }
-    .portfolio-grid { grid-template-columns: 1fr; }
-    .about-grid { grid-template-columns: 1fr; gap: 40px; }
-    .about-img { aspect-ratio: 4/3; }
-    .about-img-deco { display: none; }
+    .services-grid, .proof-grid, .reviews-grid, .pricing-grid, .portfolio-grid, .extra-services-grid { grid-template-columns: 1fr; }
     .portfolio-head { flex-direction: column; align-items: flex-start; }
+    .about-points-grid { grid-template-columns: 1fr; }
   }
   @media (min-width: 769px) and (max-width: 1024px) {
-    .services-grid { grid-template-columns: repeat(2,1fr); }
+    .services-grid, .proof-grid, .pricing-grid { grid-template-columns: repeat(2,1fr); }
+    .reviews-grid { grid-template-columns: 1fr 1fr; }
   }
+
+  /* Section backgrounds for better separation */
+  #portfolio {
+    background: linear-gradient(135deg, #faf7f4 0%, #f2e8e1 100%);
+  }
+
+  .reviews-bg {
+    background: linear-gradient(135deg, #ffffff 0%, #f7f1eb 100%);
+  }
+
+  #pricing {
+    background: linear-gradient(135deg, #f7f1eb 0%, #f2e8e1 100%);
+  }
+
+  .contact-soft {
+    background: linear-gradient(135deg, #faf7f4 0%, #f7f1eb 100%);
+  }
+
+  /* subtle section container styling */
+  .section-inner {
+    border-radius: 20px;
+  }
+
 </style>
 </head>
 <body>
-
-<!-- NAV -->
 <nav id="navbar">
   <a href="#" class="nav-brand">
     <img src="images/logo.png" alt="Collins Kiprono Logo" class="nav-logo">
@@ -924,179 +1054,104 @@
       <li><a href="#services">Services</a></li>
       <li><a href="#portfolio">Portfolio</a></li>
       <li><a href="#about">About</a></li>
+      <li><a href="#pricing">Pricing</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <a href="https://www.fiverr.com/s/VYEaBNe" target="_blank" rel="noopener" class="btn-fiverr">
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="7" fill="rgba(255,255,255,0.2)"/><path d="M4 9.5V6h4M8 6V4.5" stroke="#fff" stroke-width="1.2" stroke-linecap="round"/></svg>
-      Hire Me on Fiverr
-    </a>
+    <a href="https://www.fiverr.com/s/VYEaBNe" target="_blank" rel="noopener" class="btn-fiverr">Hire Me on Fiverr</a>
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <img src="images/logo.png" alt="" class="hero-watermark" aria-hidden="true">
   <div class="hero-grid">
-    <!-- LEFT -->
     <div class="hero-left">
       <div class="hero-badge">Professional Social Media Manager</div>
-
-      <h1 class="hero-headline" id="hero-headline">
-        I create clean, modern content that helps brands look better and grow online.
-      </h1>
-
-      <p class="hero-desc">
-        Collins helps businesses and personal brands grow online through strategy, design, and execution — covering everything from social media to SEO, ads, and print.
-      </p>
-
+      <h1 class="hero-headline">I help brands turn content into customers through strategy, design, and ads.</h1>
+      <p class="hero-desc">I work with businesses and personal brands that want to look professional, stay consistent, and grow online. From social media to design, websites, and paid ads, I handle the creative side so your brand gets seen and trusted.</p>
       <ul class="hero-bullets">
-        <li>Social media strategy & management</li>
-        <li>Graphic, web & print design</li>
-        <li>SEO, blog writing & branding</li>
-        <li>Paid ads — Facebook, Instagram & Google</li>
+        <li>Social media strategy, design, and management</li>
+        <li>Graphic design for posts, flyers, and branding</li>
+        <li>Web design for portfolios, business sites, and landing pages</li>
+        <li>SEO content and paid ads to reach more people</li>
       </ul>
-
       <div class="hero-socials">
-        <!-- Instagram -->
-        <a href="#" class="social-link" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="2" y="2" width="20" height="20" rx="5" stroke="#4a3f39" stroke-width="1.8"/>
-            <circle cx="12" cy="12" r="4" stroke="#4a3f39" stroke-width="1.8"/>
-            <circle cx="17.5" cy="6.5" r="1" fill="#4a3f39"/>
-          </svg>
+        <a href="https://www.instagram.com/coll_7ns?igsh=NnoyMDVqM3BoemF4" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#4a3f39" stroke-width="1.8"/><circle cx="12" cy="12" r="4" stroke="#4a3f39" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1" fill="#4a3f39"/></svg>
         </a>
-        <!-- LinkedIn -->
-        <a href="#" class="social-link" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="2" y="2" width="20" height="20" rx="4" stroke="#4a3f39" stroke-width="1.8"/>
-            <path d="M7 10v7M7 7v.5M11 17v-4c0-1.1.9-2 2-2h1a2 2 0 012 2v4M11 10v7" stroke="#4a3f39" stroke-width="1.8" stroke-linecap="round"/>
-          </svg>
+        <a href="https://www.facebook.com/share/1BVuZCcqmA/" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="4" stroke="#4a3f39" stroke-width="1.8"/><path d="M14 8h2V5h-2c-2.2 0-4 1.8-4 4v2H8v3h2v5h3v-5h2.5l.5-3H13V9c0-.6.4-1 1-1z" fill="#4a3f39"/></svg>
         </a>
-        <!-- TikTok -->
-        <a href="#" class="social-link" aria-label="TikTok">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M9 12a4 4 0 104 4V4c1 2 3 3 5 3" stroke="#4a3f39" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+        <a href="https://wa.me/254703214831" target="_blank" rel="noopener" class="social-link" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3.5a8.5 8.5 0 00-7.4 12.7L4 21l4.9-1.3A8.5 8.5 0 1012 3.5z" stroke="#4a3f39" stroke-width="1.6"/><path d="M9.2 8.8c-.2.1-.6.7-.6 1.3s.4 1.3.5 1.4c.1.1 1.1 1.8 2.8 2.5 1.7.7 1.7.5 2 .5.3 0 1-.4 1.1-.8.1-.4.1-.8.1-.9-.1-.1-.3-.1-.6-.3s-1-.5-1.1-.6c-.2-.1-.3-.1-.4.1-.1.2-.5.6-.6.8-.1.1-.2.1-.4 0-.2-.1-.8-.3-1.5-.9-.6-.5-.9-1.1-1-1.3-.1-.2 0-.3.1-.4l.3-.4c.1-.1.1-.2.2-.3 0-.1 0-.2 0-.3l-.5-1.2c-.1-.2-.2-.2-.4-.2h-.4z" fill="#4a3f39"/></svg>
         </a>
       </div>
-
       <div class="hero-cta">
-        <a href="https://www.fiverr.com/s/VYEaBNe" target="_blank" rel="noopener" class="btn-primary">
-          Hire Me on Fiverr ↗
-        </a>
-        <a href="#portfolio" class="btn-outline">See My Work</a>
+        <a href="https://www.fiverr.com/s/VYEaBNe" target="_blank" rel="noopener" class="btn-primary">Hire Me on Fiverr ↗</a>
+        <a href="https://wa.me/254703214831" target="_blank" rel="noopener" class="btn-outline">Message on WhatsApp</a>
       </div>
     </div>
-
-    <!-- RIGHT -->
     <div class="hero-right">
       <div class="portrait-wrap">
         <div class="portrait-ring"></div>
         <img src="images/collins-kiprono-portrait.png" alt="Collins Kiprono" class="portrait-img">
         <div class="availability-badge">
-          <div class="avail-title"><span class="avail-dot"></span>Available for Fiverr orders</div>
-          <p class="avail-sub">Social media, graphic design, web design, SEO, branding & paid ads.</p>
+          <div class="avail-title"><span class="avail-dot"></span>Available for new client work</div>
+          <p class="avail-sub">Social media, graphic design, web design, SEO, branding, and paid ads.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SERVICES -->
 <section class="services-bg" id="services">
   <div class="section-inner">
     <div class="services-head">
       <p class="section-label">What I Offer</p>
       <h2 class="section-title">What I <em>Do</em></h2>
-      <p class="section-desc">From social media to branding, design, SEO, and paid ads — a full suite of digital services to grow your brand online and offline.</p>
+      <p class="section-desc">A practical mix of creative and marketing support for businesses that want stronger branding, cleaner design, and better visibility online.</p>
     </div>
     <div class="services-grid">
-      <div class="service-card">
-        <div class="service-num">01</div>
-        <div class="service-name">Social Media Management</div>
-        <p class="service-desc">Strategy, content creation, scheduling, hashtag research, and performance tracking — all handled so you can focus on running your business.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-num">02</div>
-        <div class="service-name">Branding & Brand Identity</div>
-        <p class="service-desc">Build a brand that people remember — logos, colour palettes, typography, and brand guidelines crafted to communicate who you are at a glance.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-num">03</div>
-        <div class="service-name">Graphic & Print Design</div>
-        <p class="service-desc">Flyers, posters, banners, business cards, and branded visuals designed to make your business stand out both online and in print.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-num">04</div>
-        <div class="service-name">Web Design</div>
-        <p class="service-desc">Clean, mobile-friendly websites and landing pages designed to look great, load fast, and turn visitors into paying customers.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-num">05</div>
-        <div class="service-name">SEO & Blog Writing</div>
-        <p class="service-desc">Keyword-optimised blog posts and website copy that improve your search rankings, drive organic traffic, and position you as an authority.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-num">06</div>
-        <div class="service-name">Paid Ads Management</div>
-        <p class="service-desc">Facebook, Instagram, and Google ad campaigns built and managed to reach the right audience, maximise your budget, and drive real results.</p>
-      </div>
+      <div class="service-card"><div class="service-num">01</div><div class="service-name">Social Media Management</div><p class="service-desc">Strategy, captions, scheduling, content planning, and branded visuals that keep your pages active and consistent.</p></div>
+      <div class="service-card"><div class="service-num">02</div><div class="service-name">Branding & Brand Identity</div><p class="service-desc">Logos, colour systems, typography, and visual direction that help your brand look organised and memorable.</p></div>
+      <div class="service-card"><div class="service-num">03</div><div class="service-name">Graphic & Print Design</div><p class="service-desc">Promotional graphics, flyers, banners, posters, and marketing materials built to grab attention fast.</p></div>
+      <div class="service-card"><div class="service-num">04</div><div class="service-name">Web Design</div><p class="service-desc">Mobile-friendly websites and landing pages designed to look clean, load well, and convert visitors into inquiries.</p></div>
+      <div class="service-card"><div class="service-num">05</div><div class="service-name">SEO & Blog Writing</div><p class="service-desc">Search-friendly website copy and blog content that helps your business get found and look credible.</p></div>
+      <div class="service-card"><div class="service-num">06</div><div class="service-name">Paid Ads Management</div><p class="service-desc">Facebook, Instagram, and Google ads set up to reach the right people and support business growth.</p></div>
     </div>
   </div>
 </section>
 
-<!-- PORTFOLIO & SERVICES -->
 <section id="portfolio">
   <div class="section-inner">
-
-    <!-- Header -->
     <div class="portfolio-head">
       <div>
         <p class="section-label">My Work & Services</p>
         <h2 class="section-title">Portfolio & <em>Design Services</em></h2>
       </div>
-      <p class="section-desc" style="max-width:380px;font-size:0.88rem;">
-        Sample work across social media, graphic design, and web design — plus detailed service cards for Web & Graphic Design.
-      </p>
+      <p class="section-desc" style="max-width:380px;font-size:0.88rem;">A few samples that show the type of work I create for personal brands and small businesses.</p>
     </div>
 
-    <!-- Portfolio label -->
     <p class="combined-sub-label">✦ &nbsp;Sample Work</p>
     <div class="portfolio-grid" style="margin-bottom: 60px;">
       <div class="portfolio-card" data-src="images/personal-brand-promo.png" tabindex="0" role="button" aria-label="View Personal Brand Promo">
         <img src="images/personal-brand-promo.png" alt="Personal Brand Promo" loading="lazy">
-        <div class="portfolio-overlay">
-          <div class="portfolio-overlay-title">Personal Brand Promo</div>
-          <div class="portfolio-overlay-desc">A sleek promotional graphic designed for personal branding campaigns on Instagram & LinkedIn.</div>
-        </div>
+        <div class="portfolio-overlay"><div class="portfolio-overlay-title">Personal Brand Promo</div><div class="portfolio-overlay-desc">Designed to help a personal brand look polished and credible across social platforms.</div></div>
       </div>
       <div class="portfolio-card" data-src="images/urban-stitch-new-arrival.jpg" tabindex="0" role="button" aria-label="View Fashion New Arrival Layout">
         <img src="images/urban-stitch-new-arrival.jpg" alt="Fashion New Arrival" loading="lazy">
-        <div class="portfolio-overlay">
-          <div class="portfolio-overlay-title">Fashion New Arrival Layout</div>
-          <div class="portfolio-overlay-desc">Bold product launch graphic for a fashion brand — designed to drive excitement and engagement.</div>
-        </div>
+        <div class="portfolio-overlay"><div class="portfolio-overlay-title">Fashion New Arrival Layout</div><div class="portfolio-overlay-desc">Product launch creative made to create urgency and drive attention to new arrivals.</div></div>
       </div>
       <div class="portfolio-card" data-src="images/sample-3.png" tabindex="0" role="button" aria-label="View Fashion Sale Campaign">
         <img src="images/sample-3.png" alt="Fashion Sale Campaign" loading="lazy">
-        <div class="portfolio-overlay">
-          <div class="portfolio-overlay-title">Fashion Sale Campaign</div>
-          <div class="portfolio-overlay-desc">Bold promotional design for Urban Stitch Clothing — a striking fashion sale graphic built to convert.</div>
-        </div>
+        <div class="portfolio-overlay"><div class="portfolio-overlay-title">Fashion Sale Campaign</div><div class="portfolio-overlay-desc">Promotional sale design built for visibility, clicks, and quick campaign impact.</div></div>
       </div>
       <div class="portfolio-card" data-src="images/social-media-service-poster.png" tabindex="0" role="button" aria-label="View Service Poster Design">
         <img src="images/social-media-service-poster.png" alt="Service Poster Design" loading="lazy">
-        <div class="portfolio-overlay">
-          <div class="portfolio-overlay-title">Service Poster Design</div>
-          <div class="portfolio-overlay-desc">A professional service offering poster for social media — clear, compelling, and conversion-focused.</div>
-        </div>
+        <div class="portfolio-overlay"><div class="portfolio-overlay-title">Service Poster Design</div><div class="portfolio-overlay-desc">Service-based flyer layout designed to explain the offer clearly and convert viewers into inquiries.</div></div>
       </div>
     </div>
 
-    <!-- Divider -->
     <div class="combined-divider"></div>
-
-    <!-- Design Services label -->
     <p class="combined-sub-label" style="margin-top:48px;">✦ &nbsp;Web & Graphic Design</p>
     <div class="extra-services-grid">
       <div class="extra-card">
@@ -1107,7 +1162,7 @@
         <div class="extra-card-body">
           <div class="extra-card-num">01</div>
           <div class="extra-card-title">Web Design</div>
-          <p class="extra-card-desc">Clean, modern, and mobile-friendly websites designed to make your brand look credible and professional online — built to convert visitors into customers.</p>
+          <p class="extra-card-desc">Clean, modern, and mobile-friendly websites designed to make your brand look credible and professional online.</p>
           <ul class="extra-card-includes">
             <li>Landing pages & business websites</li>
             <li>Portfolio & personal brand sites</li>
@@ -1126,7 +1181,7 @@
         <div class="extra-card-body">
           <div class="extra-card-num">02</div>
           <div class="extra-card-title">Graphic Design</div>
-          <p class="extra-card-desc">Eye-catching visuals that communicate your brand identity with confidence — from logos to marketing materials, every design is crafted to impress.</p>
+          <p class="extra-card-desc">Visuals that make your business look organised, attractive, and ready for clients both online and offline.</p>
           <ul class="extra-card-includes">
             <li>Logo & brand identity design</li>
             <li>Flyers, posters & banners</li>
@@ -1138,114 +1193,182 @@
         </div>
       </div>
     </div>
-
   </div>
 </section>
 
-<!-- LIGHTBOX -->
+<section class="services-bg">
+  <div class="section-inner">
+    <p class="section-label">Why Clients Choose Me</p>
+    <h2 class="section-title">Clear work. Clean design. <em>Reliable communication.</em></h2>
+    <p class="section-desc" style="margin-bottom:32px;">Clients usually want creative work that looks professional, feels organised, and helps them get noticed. That is what I focus on across every project.</p>
+    <div class="proof-grid">
+      <div class="proof-card"><strong>Clear communication</strong><p>I keep the process simple, respond on time, and make it easy for clients to know what is happening.</p></div>
+      <div class="proof-card"><strong>Design that fits the brand</strong><p>I create visuals that match the client’s style instead of using one generic look for every project.</p></div>
+      <div class="proof-card"><strong>Practical business focus</strong><p>The goal is not just to make things look nice. It is to help the brand look trustworthy and easier to buy from.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews-bg">
+  <div class="section-inner">
+    <p class="section-label">Client Feedback</p>
+    <h2 class="section-title">What clients <em>say</em></h2>
+    <p class="section-desc" style="margin-bottom:32px;">Client feedback.</p>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p>Collins was easy to work with and understood the direction quickly. The final design looked clean and professional, and the delivery was on time.</p>
+        <div class="review-name">Sarah M.</div>
+        <div class="review-role">Small Business Owner</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p>I needed social media designs that looked modern but still matched my brand. He delivered exactly that and made the whole process smooth.</p>
+        <div class="review-name">Daniel K.</div>
+        <div class="review-role">Personal Brand Client</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p>Very professional work. Good communication, strong design sense, and the website layout came out better than I expected. I would definitely order again.</p>
+        <div class="review-name">Nadia T.</div>
+        <div class="review-role">Startup Founder</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services-bg" id="about">
+  <div class="section-inner">
+    <div class="about-text-block">
+      <p class="section-label">About Collins</p>
+      <h2 class="section-title">Building brands that <em>stand out</em> online</h2>
+      <p class="about-para">I am a digital creative focused on helping businesses and personal brands look more professional online. I work across social media, graphic design, websites, SEO content, and paid ads so your brand stays consistent from one platform to the next.</p>
+      <p class="about-para">I do not just make things look nice. I focus on work that helps people trust your brand, understand your offer, and take action.</p>
+      <div class="about-points-grid">
+        <div class="about-point"><span class="about-tick"></span>Social media strategy and content management</div>
+        <div class="about-point"><span class="about-tick"></span>Branding, logos, and visual identity</div>
+        <div class="about-point"><span class="about-tick"></span>Graphic and print design for promotions</div>
+        <div class="about-point"><span class="about-tick"></span>Web design for small businesses and portfolios</div>
+        <div class="about-point"><span class="about-tick"></span>SEO blog writing and website copy</div>
+        <div class="about-point"><span class="about-tick"></span>Paid ads for visibility and lead generation</div>
+      </div>
+    </div>
+    <div class="about-img-full">
+      <img src="images/collins-kiprono-portrait.png" alt="Collins Kiprono">
+    </div>
+    <div style="text-align:center; margin-top: 36px;">
+      <a href="https://www.fiverr.com/s/VYEaBNe" target="_blank" rel="noopener" class="btn-primary">Work With Me ↗</a>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="section-inner">
+    <p class="section-label">Pricing</p>
+    <h2 class="section-title">Simple starting prices for <em>different needs</em></h2>
+    <p class="section-desc" style="margin-bottom:32px;">These are flexible starting prices based on your current offer structure. You can edit them anytime to match your Fiverr packages or direct client rates.</p>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="pricing-tag">Design Basics</div>
+        <div class="pricing-title">Social Media Design</div>
+        <div class="price">$30 <small>starting from</small></div>
+        <p>For single post designs, flyers, and small content design tasks.</p>
+        <ul class="pricing-list">
+          <li>Branded visual design</li>
+          <li>Fast simple delivery</li>
+          <li>Good for one-off tasks</li>
+        </ul>
+        <a href="https://wa.me/254703214831?text=Hi%20Collins,%20I%20want%20to%20order%20the%20Social%20Media%20Design%20package%20(%2430%20starting)%20from%20your%20website" target="_blank" class="btn-primary" style="margin-top:16px;">Order Now</a>
+      </div>
+      <div class="pricing-card featured">
+        <div class="pricing-tag">Website Setup</div>
+        <div class="pricing-title">Business Website</div>
+        <div class="price">$100 <small>starting from</small></div>
+        <p>For portfolio sites, landing pages, and clean business website setups.</p>
+        <ul class="pricing-list">
+          <li>Responsive layout</li>
+          <li>Clean modern design</li>
+          <li>Best for credibility online</li>
+        </ul>
+        <a href="https://wa.me/254703214831?text=Hi%20Collins,%20I%20want%20to%20order%20the%20Business%20Website%20package%20(%24100%20starting)%20from%20your%20website" target="_blank" class="btn-primary" style="margin-top:16px;">Order Now</a>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-tag">Ongoing Support</div>
+        <div class="pricing-title">Content & Management</div>
+        <div class="price">$30 <small>starting from</small></div>
+        <p>For ongoing support with content, posting, strategy, or design retainer work.</p>
+        <ul class="pricing-list">
+          <li>Consistent monthly content</li>
+          <li>Better brand consistency</li>
+          <li>Ideal for growing businesses</li>
+        </ul>
+        <a href="https://wa.me/254703214831?text=Hi%20Collins,%20I%20want%20to%20order%20the%20Content%20and%20Management%20package%20(%2430%20starting)%20from%20your%20website" target="_blank" class="btn-primary" style="margin-top:16px;">Order Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
   <button class="lightbox-close" id="lightbox-close" aria-label="Close">×</button>
   <img src="" alt="Portfolio preview" id="lightbox-img">
 </div>
 
-<!-- ABOUT -->
-<section class="about-bg" id="about">
-  <div class="section-inner">
-    <!-- Text block centred -->
-    <div class="about-text-block">
-      <p class="section-label">About Collins</p>
-      <h2 class="section-title">Building brands that <em>stand out</em> online</h2>
-      <p class="about-para">
-        Collins Kiprono is a multi-disciplinary digital creative helping businesses and personal brands grow their presence online and offline. From social media strategy to graphic design, web design, SEO, and paid advertising — Collins brings everything under one roof so your brand stays consistent, visible, and impactful.
-      </p>
-      <p class="about-para">
-        Whether you're a startup building from scratch or an established business ready to scale — Collins delivers creative, results-driven work tailored to your goals and audience.
-      </p>
-      <div class="about-points-grid">
-        <div class="about-point"><span class="about-tick"></span>Social media strategy & content management</div>
-        <div class="about-point"><span class="about-tick"></span>Branding, logos & brand identity design</div>
-        <div class="about-point"><span class="about-tick"></span>Graphic & print design — flyers, banners, posters</div>
-        <div class="about-point"><span class="about-tick"></span>Web design — landing pages & business sites</div>
-        <div class="about-point"><span class="about-tick"></span>SEO & keyword-optimised blog writing</div>
-        <div class="about-point"><span class="about-tick"></span>Paid ads — Facebook, Instagram & Google</div>
+<section class="cta-section contact-soft" id="contact">
+  <div class="section-inner contact-grid">
+    <div class="contact-card" style="text-align:left;">
+      <p class="section-label">Get In Touch</p>
+      <h3 style="font-family:var(--font-display);font-size:2rem;font-weight:300;margin-bottom:14px;">Let’s talk about your next project</h3>
+      <p>You can reach me through Fiverr, WhatsApp, email, or social media. Pick the option that works best for you.</p>
+      <div class="contact-links" style="flex-direction:row;gap:16px;align-items:center;">
+        <a href="https://www.fiverr.com/s/VYEaBNe" target="_blank" rel="noopener" class="social-link" aria-label="Fiverr">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/fiverr.svg" alt="Fiverr" style="width:18px;height:18px;filter:invert(18%) sepia(12%) saturate(1200%) hue-rotate(180deg);">
+        </a>
+        <a href="https://wa.me/254703214831" target="_blank" rel="noopener" class="social-link" aria-label="WhatsApp">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp" style="width:18px;height:18px;filter:invert(18%) sepia(12%) saturate(1200%) hue-rotate(180deg);">
+        </a>
+        <a href="mailto:collinskibet814@gmail.com" class="social-link" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="4" width="20" height="16" rx="3" stroke="#4a3f39" stroke-width="1.8"/><path d="M2 7l10 7 10-7" stroke="#4a3f39" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="https://www.instagram.com/coll_7ns?igsh=NnoyMDVqM3BoemF4" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#4a3f39" stroke-width="1.8"/><circle cx="12" cy="12" r="4" stroke="#4a3f39" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1" fill="#4a3f39"/></svg>
+        </a>
       </div>
     </div>
-    <!-- Full width image below -->
-    <div class="about-img-full">
-      <img src="images/collins-kiprono-portrait.png" alt="Collins Kiprono">
-    </div>
-    <!-- Button below image -->
-    <div style="text-align:center; margin-top: 36px;">
-      <a href="https://www.fiverr.com/s/VYEaBNe" target="_blank" rel="noopener" class="btn-primary">
-        Work With Me ↗
-      </a>
+    <div class="contact-card" style="text-align:left;">
+      <p class="section-label">Quick Inquiry Form</p>
+      <div class="contact-form">
+        <input type="text" id="inq-name" placeholder="Your name">
+        <input type="email" id="inq-email" placeholder="Your email">
+        <input type="text" id="inq-service" placeholder="Service you need">
+        <textarea id="inq-message" placeholder="Tell me a bit about your project"></textarea>
+        <a href="https://wa.me/254703214831?text=Hi%20Collins,%20I%20need%20your%20services" id="whatsapp-inquiry-btn" target="_blank" rel="noopener" class="btn-primary" style="border:none;cursor:pointer;width:fit-content;text-decoration:none;">Send via WhatsApp</a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT CTA -->
-<section class="cta-section" id="contact">
-  <div class="cta-inner">
-    <p class="cta-tag">Let's Work Together</p>
-    <h2 class="cta-title">Ready to grow your <em>online presence?</em></h2>
-    <a href="https://www.fiverr.com/s/VYEaBNe" target="_blank" rel="noopener" class="btn-cta">
-      Contact Me on Fiverr ↗
-    </a>
-  </div>
-</section>
-
-<!-- FLOATING SOCIAL BUTTONS -->
 <div class="float-buttons">
-  <!-- Email -->
-  <a href="mailto:collinskibet814@gmail.com" target="_blank" rel="noopener" class="float-btn email" aria-label="Send Email" data-tip="Send Email">
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="2" y="4" width="20" height="16" rx="3" stroke="#fff" stroke-width="2"/>
-      <path d="M2 7l10 7 10-7" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  </a>
-  <!-- Facebook -->
-  <a href="https://www.facebook.com/share/1BVuZCcqmA/" target="_blank" rel="noopener" class="float-btn facebook" aria-label="Facebook" data-tip="Facebook">
-    <svg viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg">
-      <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
-    </svg>
-  </a>
-  <!-- Instagram -->
-  <a href="https://www.instagram.com/coll_7ns?igsh=NnoyMDVqM3BoemF4" target="_blank" rel="noopener" class="float-btn instagram" aria-label="Instagram" data-tip="Instagram">
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="2" y="2" width="20" height="20" rx="5" stroke="#fff" stroke-width="1.8"/>
-      <circle cx="12" cy="12" r="4" stroke="#fff" stroke-width="1.8"/>
-      <circle cx="17.5" cy="6.5" r="1.2" fill="#fff"/>
-    </svg>
-  </a>
-  <!-- WhatsApp -->
-  <a href="https://wa.me/254703214831" target="_blank" rel="noopener" class="float-btn whatsapp" aria-label="Chat on WhatsApp" data-tip="WhatsApp">
-    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path fill="#fff" d="M24 4C13 4 4 13 4 24c0 3.6 1 7 2.7 9.9L4 44l10.4-2.7C17.1 43 20.5 44 24 44c11 0 20-9 20-20S35 4 24 4zm0 36c-3.1 0-6.1-.8-8.7-2.4l-.6-.4-6.2 1.6 1.7-6-.4-.6C8.8 30.1 8 27.1 8 24 8 15.2 15.2 8 24 8s16 7.2 16 16-7.2 16-16 16z"/>
-      <path fill="#fff" d="M33.5 28.6c-.5-.2-2.9-1.4-3.3-1.6-.5-.2-.8-.2-1.1.2-.3.5-1.2 1.6-1.5 1.9-.3.3-.5.4-1 .1-.5-.2-2-.7-3.8-2.3-1.4-1.2-2.3-2.8-2.6-3.2-.3-.5 0-.7.2-1l.7-.8c.2-.3.3-.5.4-.8.1-.3 0-.6-.1-.8-.1-.2-1.1-2.6-1.5-3.6-.4-.9-.8-.8-1.1-.8h-.9c-.3 0-.8.1-1.2.6-.4.5-1.6 1.6-1.6 3.8s1.7 4.4 1.9 4.7c.2.3 3.3 5 8 7 1.1.5 2 .8 2.7 1 1.1.3 2.2.3 3 .2.9-.1 2.9-1.2 3.3-2.3.4-1.1.4-2.1.3-2.3-.2-.2-.5-.3-1-.5z"/>
-    </svg>
-  </a>
+  <a href="mailto:collinskibet814@gmail.com" target="_blank" rel="noopener" class="float-btn email" aria-label="Send Email" data-tip="Send Email"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="4" width="20" height="16" rx="3" stroke="#fff" stroke-width="2"/><path d="M2 7l10 7 10-7" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  <a href="https://www.facebook.com/share/1BVuZCcqmA/" target="_blank" rel="noopener" class="float-btn facebook" aria-label="Facebook" data-tip="Facebook"><svg viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+  <a href="https://www.instagram.com/coll_7ns?igsh=NnoyMDVqM3BoemF4" target="_blank" rel="noopener" class="float-btn instagram" aria-label="Instagram" data-tip="Instagram"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#fff" stroke-width="1.8"/><circle cx="12" cy="12" r="4" stroke="#fff" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.2" fill="#fff"/></svg></a>
+  <a href="https://wa.me/254703214831" target="_blank" rel="noopener" class="float-btn whatsapp" aria-label="Chat on WhatsApp" data-tip="WhatsApp"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="#fff" d="M24 4C13 4 4 13 4 24c0 3.6 1 7 2.7 9.9L4 44l10.4-2.7C17.1 43 20.5 44 24 44c11 0 20-9 20-20S35 4 24 4zm0 36c-3.1 0-6.1-.8-8.7-2.4l-.6-.4-6.2 1.6 1.7-6-.4-.6C8.8 30.1 8 27.1 8 24 8 15.2 15.2 8 24 8s16 7.2 16 16-7.2 16-16 16z"/><path fill="#fff" d="M33.5 28.6c-.5-.2-2.9-1.4-3.3-1.6-.5-.2-.8-.2-1.1.2-.3.5-1.2 1.6-1.5 1.9-.3.3-.5.4-1 .1-.5-.2-2-.7-3.8-2.3-1.4-1.2-2.3-2.8-2.6-3.2-.3-.5 0-.7.2-1l.7-.8c.2-.3.3-.5.4-.8.1-.3 0-.6-.1-.8-.1-.2-1.1-2.6-1.5-3.6-.4-.9-.8-.8-1.1-.8h-.9c-.3 0-.8.1-1.2.6-.4.5-1.6 1.6-1.6 3.8s1.7 4.4 1.9 4.7c.2.3 3.3 5 8 7 1.1.5 2 .8 2.7 1 1.1.3 2.2.3 3 .2.9-.1 2.9-1.2 3.3-2.3.4-1.1.4-2.1.3-2.3-.2-.2-.5-.3-1-.5z"/></svg></a>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <p>© 2026 <span>Collins Kiprono</span>. Social Media · Graphic Design · Web Design · SEO · Branding · Paid Ads.</p>
 </footer>
 
 <script>
-  // NAV SCROLL
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 30);
   });
 
-  // HAMBURGER
   const hamburger = document.getElementById('hamburger');
   const navRight = document.getElementById('nav-right');
   hamburger.addEventListener('click', () => navRight.classList.toggle('open'));
   navRight.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navRight.classList.remove('open')));
 
-
-  // LIGHTBOX
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightbox-img');
   const lightboxClose = document.getElementById('lightbox-close');
@@ -1253,8 +1376,7 @@
   document.querySelectorAll('.portfolio-card').forEach(card => {
     function openLightbox() {
       lightboxImg.src = card.dataset.src;
-      // card might be an <img> itself or a <div> containing an <img>
-      lightboxImg.alt = card.tagName === 'IMG' ? card.alt : (card.querySelector('img') ? card.querySelector('img').alt : '');
+      lightboxImg.alt = card.querySelector('img') ? card.querySelector('img').alt : '';
       lightbox.classList.add('open');
       document.body.style.overflow = 'hidden';
     }
@@ -1269,6 +1391,24 @@
   lightboxClose.addEventListener('click', closeLightbox);
   lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+  const inquiryBtn = document.getElementById('whatsapp-inquiry-btn');
+  const inquiryName = document.getElementById('inq-name');
+  const inquiryEmail = document.getElementById('inq-email');
+  const inquiryService = document.getElementById('inq-service');
+  const inquiryMessage = document.getElementById('inq-message');
+
+  if (inquiryBtn) {
+    inquiryBtn.addEventListener('click', function (e) {
+      const name = inquiryName.value.trim() || 'Not provided';
+      const email = inquiryEmail.value.trim() || 'Not provided';
+      const service = inquiryService.value.trim() || 'Not specified';
+      const message = inquiryMessage.value.trim() || 'No extra project details provided.';
+
+      const text = `Hi Collins, I would like to inquire about your services.%0A%0AName: ${encodeURIComponent(name)}%0AEmail: ${encodeURIComponent(email)}%0AService needed: ${encodeURIComponent(service)}%0AProject details: ${encodeURIComponent(message)}`;
+      inquiryBtn.href = `https://wa.me/254703214831?text=${text}`;
+    });
+  }
 </script>
 </body>
 </html>
